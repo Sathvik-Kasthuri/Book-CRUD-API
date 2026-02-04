@@ -23,7 +23,7 @@ userSchema.statics.register = async function (name, email, password) {
     throw Error("All fields must be filled");
   }
 
-  const exists = await this.findOne({ email }); // ✅ FIX
+  const exists = await this.findOne({ email }); 
 
   if (exists) {
     throw Error("Email already exists");
