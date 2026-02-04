@@ -15,8 +15,16 @@ const bookRoutes = require("./routes/bookRoutes");
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+
 app.get("/health", (req, res) => {
-  res.status(200).json({ status: "OK", message: "Backend is running" });
+  res.status(200).json({
+    status: "OK",
+    message: "Server is healthy",
+    uptime: process.uptime(),
+  });
 });
 
 app.use("/api/users", userRoutes);
